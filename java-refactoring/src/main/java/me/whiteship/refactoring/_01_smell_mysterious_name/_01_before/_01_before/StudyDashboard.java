@@ -1,4 +1,4 @@
-package me.whiteship.refactoring._01_smell_mysterious_name._01_before;
+package me.whiteship.refactoring._01_smell_mysterious_name._01_before._01_before;
 
 import org.kohsuke.github.GHIssue;
 import org.kohsuke.github.GHIssueComment;
