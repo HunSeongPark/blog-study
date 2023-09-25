@@ -1,4 +1,4 @@
-package me.whiteship.refactoring._01_smell_mysterious_name._01_before._02_after;
+package me.whiteship.refactoring._01_smell_mysterious_name._01_before;
 
 import org.kohsuke.github.GHIssue;
 import org.kohsuke.github.GHIssueComment;
@@ -16,15 +16,7 @@ public class StudyDashboard {
 
     private Set<String> reviews = new HashSet<>();
 
-    /**
-     * 스터디 리뷰 이슈에 작성되어 있는 리뷰어 목록과 리뷰를 읽어온다.
-     * @throws IOException
-     */
-    private void loadReviews() throws IOException {
-        GitHub gitHub = GitHub.connect();
-        GHRepository repository = gitHub.getRepository("whiteship/live-study");
-        GHIssue issue = repository.getIssue(30);
-
+    private void studyReviews(GHIssue issue) throws IOException {
         List<GHIssueComment> comments = issue.getComments();
         for (GHIssueComment comment : comments) {
             usernames.add(comment.getUserName());
@@ -41,9 +33,12 @@ public class StudyDashboard {
     }
 
     public static void main(String[] args) throws IOException {
+        GitHub gitHub = GitHub.connect();
+        GHRepository repository = gitHub.getRepository("whiteship/live-study");
+        GHIssue issue = repository.getIssue(30);
 
         StudyDashboard studyDashboard = new StudyDashboard();
-        studyDashboard.loadReviews();
+        studyDashboard.studyReviews(issue);
         studyDashboard.getUsernames().forEach(System.out::println);
         studyDashboard.getReviews().forEach(System.out::println);
     }
