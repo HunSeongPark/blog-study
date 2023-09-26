@@ -22,6 +22,6 @@ public class MemberRepositoryImpl implements MemberRepositoryCustom {
         return queryFactory
                 .select(member.name)
                 .from(member)
-                .where(member.id.in(memberIdList)).fetch();
+                .where(member.id.in(memberIdList)).fetchFirst();
     }
 }
