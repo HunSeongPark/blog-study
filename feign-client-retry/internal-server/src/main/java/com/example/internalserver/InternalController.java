@@ -13,9 +13,8 @@ public class InternalController {
     private final InternalService internalService;
 
     @GetMapping("/delayed")
-    public String delayedWithoutReturn() throws InterruptedException {
+    public void delayedWithoutReturn() throws InterruptedException {
         internalService.delayedLogicWithoutReturn();
-        return "Success";
     }
 
     @GetMapping("/delayed/return")
