@@ -4,7 +4,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class InternalService {
-
+ㅌ
     public void delayedLogicWithoutReturn() throws InterruptedException {
         int a = 100;
         Thread.sleep(10000L);
