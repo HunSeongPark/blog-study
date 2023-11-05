@@ -12,6 +12,8 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import static me.whiteship.refactoring._03_long_function._13_replace_conditional_with_polymorphism.PrinterMode.CVS;
+
 public class StudyDashboard {
 
     private final int totalNumberOfEvents;
@@ -29,7 +31,7 @@ public class StudyDashboard {
 
     private void print() throws IOException, InterruptedException {
         checkGithubIssues(getGhRepository());
-        new StudyPrinter(this.totalNumberOfEvents, this.participants, PrinterMode.MARKDOWN).execute();
+        new PrinterFactory(totalNumberOfEvents, participants).getPrinter(CVS).execute();
     }
 
     private GHRepository getGhRepository() throws IOException {
