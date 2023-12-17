@@ -10,6 +10,4 @@ public class Thermostats {
 
     public static Boolean fahrenheit = true;
 
-
-
 }
