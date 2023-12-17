@@ -6,6 +6,7 @@ public class Order {
 
     private LocalDate placedOn;
     private String deliveryState;
+    private boolean isRush;
 
     public Order(LocalDate placedOn, String deliveryState) {
         this.placedOn = placedOn;
@@ -18,5 +19,9 @@ public class Order {
 
     public String getDeliveryState() {
         return deliveryState;
+    }
+
+    public boolean getIsRush() {
+        return this.isRush;
     }
 }
